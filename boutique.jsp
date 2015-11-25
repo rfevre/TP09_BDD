@@ -82,5 +82,6 @@
     </Table>
     <center><input type="submit"/></center>
     </form>
+    <% con.close(); %>
   </body>
 </html>
