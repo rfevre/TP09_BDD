@@ -1,6 +1,7 @@
 <html>
   <head>
     <%@ page import="java.sql.*" errorPage="erreur.jsp" %>
+    <%@ page contentType="text/html; charset=UTF-8" %>
   </head>
   <body>
     <%

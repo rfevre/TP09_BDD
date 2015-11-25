@@ -1,7 +1,6 @@
 <!-- boutique.jsp -->
 <html>
   <head>
-    <link rel="stylesheet" href="css/style.css">
     <title>Panier client</title>
     <%@ page import="java.util.*" %>
     <%@ page import="java.sql.*" %>
