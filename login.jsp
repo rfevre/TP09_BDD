@@ -22,22 +22,11 @@
        String nomTmp = "";
        String datTmp = "";
        String ipTmp = "";
-       boolean test = false;
 
-       while(rs.next()) {
+       if (rs.next()) {
        nomTmp = rs.getString("nom");
-       if (nomTmp != null) {
-       test = true;
        datTmp = rs.getString("dat");
        ipTmp = rs.getString("ip");
-       break;
-       }
-       else {
-       test = false;
-       }
-       }
-
-       if (test) {
        out.println("Bonjour : "+nomTmp);
        %>
     <br>
@@ -46,17 +35,17 @@
        out.println("<br>Votre ip : "+ ipTmp);   
        stmt.executeUpdate("UPDATE login SET dat = '"+new java.util.Date()+"' WHERE nom LIKE '"+nomTmp+"';");
        }
+       
        else {
        rs = stmt.executeQuery("SELECT nom FROM login WHERE nom LIKE '"+nom1+"';");
-       if(rs.next()==true)
+       if(rs.next())
        out.println("Mauvais mdp !");
        else {
        out.println("Bienvenue " +nom1+",");
        stmt.executeUpdate("INSERT INTO login VALUES ('"+nom1+"','"+mdp1+"','"+new java.util.Date()+"', '"+request.getRemoteAddr()+"');");
        out.println(" c'est votre 1ère connexion, ajout dans la table login de votre nom et mdp");
        }
-       }
-       
+       }     
        %>
     <br>
     <br>
